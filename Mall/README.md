@@ -1,8 +1,7 @@
-优化
-1. 适配 flexible 9.16
-2. webpack配置 9.17
-3. mock数据本地化 9.18
-4. 
+安装步骤：
+首先npm i
+然后进入mock-server 执行npm i，安装mock的依赖后执行npm start启动mock
+最后在Mall下用npm start启动项目
 
 
 
