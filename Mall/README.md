@@ -1,7 +1,9 @@
 安装步骤：
-首先npm i
-然后进入mock-server 执行npm i，安装mock的依赖后执行npm start启动mock
-最后在Mall下用npm start启动项目
+1. 在Mall下执行npm i
+
+2. 然后进入mock-server 执行npm i，然后执行npm start启动mock
+
+3. 最后在Mall下用npm start启动项目
 
 
 
