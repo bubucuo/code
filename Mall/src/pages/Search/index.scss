@@ -1,0 +1,14 @@
+.search {
+  position: relative;
+  $w: 100px;
+
+  .firstCatgories {
+    position: fixed;
+    left: 0;
+    width: $w;
+  }
+
+  .secondCatgories {
+    margin-left: $w;
+  }
+}

@@ -1,0 +1,60 @@
+.userCard {
+  display: flex;
+  padding: 40px 20px;
+  background: linear-gradient(90deg, #dd9b4c, #ffd787);
+
+  .personalWrap {
+    flex: 1;
+    overflow: hidden;
+    padding: 0 0 0 15px;
+    position: relative;
+    font-size: 14px;
+    color: #fff;
+    line-height: 22px;
+  }
+
+  .userIcon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    $size: 50px;
+    width: $size;
+    height: $size;
+  }
+
+  .userName {
+    font-size: 16px;
+    color: #fff;
+    display: flex;
+    align-items: center;
+  }
+
+  .pin {
+    text-align: left;
+    color: #fff;
+    font-size: 12px;
+  }
+
+  .tips {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+  }
+
+  .notice {
+    max-width: 150px;
+    height: 16px;
+    line-height: 16px;
+    padding: 0 8px;
+    margin: 6px 8px 0 0;
+    border-radius: 10px;
+    font-size: 10px;
+    color: #fff;
+    background: #c8483f;
+    text-align: center;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    background-color: rgba(180, 116, 15, 0.3);
+  }
+}

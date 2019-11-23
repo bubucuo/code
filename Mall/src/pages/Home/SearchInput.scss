@@ -1,0 +1,83 @@
+.searchInput {
+  z-index: 3;
+  display: flex;
+  align-items: center;
+
+  .inputBox {
+    flex: 1;
+
+    .inputBox {
+      position: relative;
+      padding: 2px 2px 2px 30px;
+      border-radius: 20px;
+      background: white;
+    }
+
+    .icon-sousuo {
+      position: absolute;
+      top: 0;
+      left: 12px;
+      bottom: 0;
+      display: flex;
+      align-items: center;
+      color: #757575;
+      font-size: 16px;
+    }
+
+    input {
+      border: 0;
+      background: 0 0;
+      font-size: 12px;
+      color: #232326;
+      padding: 0 12px 0 6px;
+      box-sizing: border-box;
+      -webkit-box-flex: 1;
+      height: auto;
+      vertical-align: middle;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      width: 100%;
+      line-height: 30px;
+
+      &::placeholder {
+        color: #757575;
+      }
+    }
+  }
+
+  .iconfont {
+    color: #fff;
+    font-weight: bold;
+    font-size: 20px;
+  }
+
+  .icon-icon- {
+    font-size: 22px;
+  }
+
+  .icon-box,
+  .user {
+    margin: 10px;
+  }
+
+  .loginBtn {
+    color: #fff;
+    font-size: 14px;
+  }
+
+  .searchPage {
+    z-index: 999;
+    position: fixed;
+    top: 58px;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background: white;
+  }
+
+  .searchPage {
+    padding: 20px;
+    color: #999;
+    font-size: 14px;
+  }
+}

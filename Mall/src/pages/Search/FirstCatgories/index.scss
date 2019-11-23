@@ -1,0 +1,15 @@
+.firstCatgories {
+  text-align: center;
+
+  .node {
+    line-height: 24px;
+    padding: 10px;
+    color: #333;
+    font-size: 14px;
+  }
+
+  .node-active {
+    color: #e93b3d;
+    background: #fff;
+  }
+}

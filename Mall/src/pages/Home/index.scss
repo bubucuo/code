@@ -1,0 +1,22 @@
+.home {
+  .searchInput {
+    z-index: 3;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    background: #c82418;
+    padding: 8px;
+  }
+
+  .part1 {
+    padding: 70px 10px 10px;
+    background-image: url('//m.360buyimg.com/mobilecms/s1125x939_jfs/t1/60757/16/9750/87911/5d761342E87cba8e2/afa7733548f80321.jpg');
+    background-position: center;
+  }
+
+  .part2 {
+    background-image: url('https://m.360buyimg.com/mobilecms/s750x324_jfs/t1/84353/13/10205/87338/5d761384E32f204d1/d2b9be4516481bac.jpg.dpg');
+    background-position: center;
+  }
+}

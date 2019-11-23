@@ -1,0 +1,39 @@
+.secondCatgories {
+  /* min-height: 100vh; */
+  padding: 0px 20px 40px;
+  background: #fff;
+
+  .nodeTitle {
+    line-height: 44px;
+  }
+
+  .node {
+    margin-bottom: 20px;
+  }
+
+  .nodeChildren {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+  }
+
+  .nodeItem {
+    $size: 70px;
+    width: $size;
+    height: $size+20;
+    margin: 10px 4px;
+    text-align: center;
+    line-height: 24px;
+    font-size: 12px;
+
+    .title {
+      font-size: 12px;
+    }
+
+    img {
+      display: block;
+      width: 100%;
+    }
+  }
+}
