@@ -44,7 +44,7 @@ npm install redux react-redux react-router-dom --save
 
 #### 新建src/pages、src/components、src/layout
 
-![image-20200206162712918](../../Library/Application Support/typora-user-images/image-20200206162712918.png)
+<img src="https://tva1.sinaimg.cn/large/0082zybply1gbntbvk8amj30bi0pedor.jpg" width=200/>
 
 #### 新建模板页面
 
@@ -60,7 +60,7 @@ npm install redux react-redux react-router-dom --save
 
 如底部导航条：
 
-![image-20200206173821114](../../Library/Application Support/typora-user-images/image-20200206173821114.png)
+![image-20200207142312814](https://tva1.sinaimg.cn/large/0082zybply1gbntg7zj61j30vj0u04qp.jpg)
 
 注：这里还没有写router，使用Link会报错，可以先写成a标签，等下再改回来。
 
@@ -378,8 +378,9 @@ export default Routes;
 
 ### 框架搭建完成，页面细节可自己完善。
 
-![image-20200206201148607](../../Library/Application Support/typora-user-images/image-20200206201148607.png)
+<img src="https://tva1.sinaimg.cn/large/0082zybply1gbntap9ze9j30ky192h6z.jpg" width=320/>
 
 
 
-代码地址
+[代码地址](https://github.com/bubucuo/code/tree/master/taobao)
+
