@@ -1,25 +1,19 @@
-const initialState = {
-    userInfo: {},
-    isLogin: false
+const initalState = {
+    isLogin: false,
+    userInfo: {}
 };
-const userReducer = (state = { ...initialState }, action) => {
+
+function userReducer(state = { ...initalState }, action) {
     switch (action.type) {
         case "loginSuccess":
-            console.log("omg"); //sy-log
             return {
                 isLogin: true,
-                userInfo: {
-                    name: "gaoshaoyun"
-                }
+                userInfo: { name: "kkb" }
             };
-        case "login":
-        case "userInfo":
-            return {
-                userInfo: action.state,
-                isLogin: action.state.id != null ? true : false
-            };
+
         default:
-            return state;
+            return { ...state };
     }
-};
+}
+
 export default userReducer;

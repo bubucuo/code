@@ -1,20 +1,22 @@
 import React from "react";
-import { Route, Switch } from "react-router-dom";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import HomePage from "../pages/HomePage";
-import _404Page from "../pages/_404Page";
-import MytaobaoPage from "../pages/MytaobaoPage";
+import MyTaobaoPage from "../pages/MyTaobaoPage";
 import LoginPage from "../pages/LoginPage";
+import _404Page from "../pages/_404Page";
 import PrivateRoute from "./PrivateRoute";
 
-function Routes(props) {
+function Routes() {
     return (
-        <Switch>
-            <Route exact path="/" component={HomePage} />
-            {/* <Route exact path="/mytaobao" component={MytaobaoPage} /> */}
-            <PrivateRoute path="/mytaobao" component={MytaobaoPage} />
-            <Route path="/login" component={LoginPage} />
-            <Route component={_404Page} />
-        </Switch>
+        <Router>
+            <Switch>
+                <Route exact path="/" component={HomePage} />
+                {/* <Route path="/mytaobao" component={MyTaobaoPage} /> */}
+                <PrivateRoute path="/mytaobao" component={MyTaobaoPage} />
+                <Route path="/login" component={LoginPage} />
+                <Route component={_404Page} />
+            </Switch>
+        </Router>
     );
 }
 

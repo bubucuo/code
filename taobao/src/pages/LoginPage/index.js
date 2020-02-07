@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import PageLayout from "../../layout/PageLayout";
 import { Redirect } from "react-router-dom";
 import { connect } from "react-redux";
 
@@ -7,16 +8,18 @@ export default connect(({ user }) => ({ user }), {
 })(
     class LoginPage extends Component {
         render() {
-            const { user, loginClick } = this.props;
+            const { user, loginClick, location } = this.props;
             const { isLogin } = user;
             if (isLogin) {
-                return <Redirect to="/" />;
+                const redirect =
+                    (location.state && location.state.redirect) || "/";
+                return <Redirect to={redirect} />;
             }
             return (
-                <div>
-                    <h3>LoginPage</h3>
+                <PageLayout>
+                    LoginPage
                     <button onClick={loginClick}>login</button>
-                </div>
+                </PageLayout>
             );
         }
     }

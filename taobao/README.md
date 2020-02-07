@@ -22,14 +22,6 @@
 
 
 
-### 页面显示
-
-启动项目，显示如下：
-
-![image-20200206154543949](../../Library/Application Support/typora-user-images/image-20200206154543949.png)
-
-
-
 ## 库文件安装
 
 ### 安装sass
@@ -45,8 +37,6 @@ npm install sass --D
 ```
 npm install redux react-redux react-router-dom --save 
 ```
-
-
 
 
 
@@ -71,6 +61,37 @@ npm install redux react-redux react-router-dom --save
 如底部导航条：
 
 ![image-20200206173821114](../../Library/Application Support/typora-user-images/image-20200206173821114.png)
+
+注：这里还没有写router，使用Link会报错，可以先写成a标签，等下再改回来。
+
+```jsx
+const menu = [
+    {
+        key: "home",
+        title: "首页",
+        link: "/",
+        icon: "shouye"
+    },
+    {
+        key: "cart",
+        title: "购物车",
+        link: "/cart",
+        icon: "fenlei"
+    },
+    {
+        key: "olist",
+        title: "订单列表",
+        link: "/olist",
+        icon: "icon-"
+    },
+    {
+        key: "mytaobao",
+        title: "我的淘宝",
+        link: "/mytaobao",
+        icon: "wode"
+    }
+];
+```
 
 
 
@@ -132,13 +153,12 @@ Index.scss
 ```jsx
 import React, { Component } from "react";
 import BottomNav from "../../components/BottomNav/index";
-import styles from "./index.module.scss";
 
-export default class PageLoyout extends Component {
+export default class PageLayout extends Component {
     render() {
         const { children } = this.props;
         return (
-            <div className={styles.pageLoyout}>
+            <div>
                 {children}
                 <BottomNav />
             </div>
@@ -157,43 +177,40 @@ src/app.js
 
 ```jsx
 import React from "react";
-import { BrowserRouter as Router } from "react-router-dom";
-import Routes from "./pages/routes";
+import "./App.css";
 import "./lib/flexible";
 import "./static/iconfont/iconfont.css";
-import "./App.css";
+import Routes from "./Routes";
 
 function App() {
-    return (
-        <Router>
-            <Routes />
-        </Router>
-    );
+    return <Routes />;
 }
 
 export default App;
 ```
 
+
+
 routes为路由，src/Routes/index.js：
-
-
 
 ```jsx
 import React from "react";
-import { Route, Switch } from "react-router-dom";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import HomePage from "../pages/HomePage";
-import _404Page from "../pages/_404Page";
-import MytaobaoPage from "../pages/MytaobaoPage";
+import MyTaobaoPage from "../pages/MyTaobaoPage";
 import LoginPage from "../pages/LoginPage";
+import _404Page from "../pages/_404Page";
 
-function Routes(props) {
+function Routes() {
     return (
-        <Switch>
-            <Route exact path="/" component={HomePage} />
-            <Route exact path="/mytaobao" component={MytaobaoPage} />
-            <Route path="/login" component={LoginPage} />
-            <Route component={_404Page} />
-        </Switch>
+        <Router>
+            <Switch>
+                <Route exact path="/" component={HomePage} />
+                <Route path="/mytaobao" component={MyTaobaoPage} />
+                <Route path="/login" component={LoginPage} />
+                <Route component={_404Page} />
+            </Switch>
+        </Router>
     );
 }
 
@@ -206,11 +223,13 @@ export default Routes;
 
 #### 至此，所有文件创建完毕：
 
-![image-20200206174522452](https://tva1.sinaimg.cn/large/006tNbRwly1gbmtptfc5zj306d0pptdp.jpg)
+<img src="https://tva1.sinaimg.cn/large/0082zybply1gbnq2a65waj30f819an7u.jpg" width=320/>
+
+
 
 #### 效果如下：
 
-![image-20200206180703381](../../Library/Application Support/typora-user-images/image-20200206180703381.png)
+<img src="https://tva1.sinaimg.cn/large/0082zybply1gbnpzkiirjj30lq18w77d.jpg" width=320/>
 
 
 
@@ -236,29 +255,24 @@ export default store;
 store/userReducer.js
 
 ```jsx
-const initialState = {
-    userInfo: {},
-    isLogin: false
+const initalState = {
+    isLogin: false,
+    userInfo: {}
 };
-const userReducer = (state = { ...initialState }, action) => {
+
+function userReducer(state = { ...initalState }, action) {
     switch (action.type) {
         case "loginSuccess":
             return {
                 isLogin: true,
-                userInfo: {
-                    name: "gaoshaoyun"
-                }
+                userInfo: { name: "kkb" }
             };
-        case "login":
-        case "userInfo":
-            return {
-                userInfo: action.state,
-                isLogin: action.state.id != null ? true : false
-            };
+
         default:
-            return state;
+            return { ...state };
     }
-};
+}
+
 export default userReducer;
 ```
 
@@ -270,25 +284,25 @@ export default userReducer;
 
 ```jsx
 import React, { Component } from "react";
-import { Redirect, Route } from "react-router-dom";
+import { Route, Redirect } from "react-router-dom";
 import { connect } from "react-redux";
 
-export default connect(
-    ({ user }) => ({ user }),
-    {}
-)(
+export default connect(({ user }) => ({ user }))(
     class PrivateRoute extends Component {
         render() {
-            const { user, component, path, location } = this.props;
+            const { user, path, component, location } = this.props;
             const { isLogin } = user;
             if (isLogin) {
                 return <Route path={path} component={component} />;
             }
+
             return (
                 <Redirect
                     to={{
                         pathname: "/login",
-                        state: { redirect: location.pathname }
+                        state: {
+                            redirect: location.pathname
+                        }
                     }}
                 />
             );
@@ -303,6 +317,7 @@ export default connect(
 
 ```jsx
 import React, { Component } from "react";
+import PageLayout from "../../layout/PageLayout";
 import { Redirect } from "react-router-dom";
 import { connect } from "react-redux";
 
@@ -311,16 +326,18 @@ export default connect(({ user }) => ({ user }), {
 })(
     class LoginPage extends Component {
         render() {
-            const { user, loginClick } = this.props;
+            const { user, loginClick, location } = this.props;
             const { isLogin } = user;
             if (isLogin) {
-                return <Redirect to="/" />;
+                const redirect =
+                    (location.state && location.state.redirect) || "/";
+                return <Redirect to={redirect} />;
             }
             return (
-                <div>
-                    <h3>LoginPage</h3>
+                <PageLayout>
+                    LoginPage
                     <button onClick={loginClick}>login</button>
-                </div>
+                </PageLayout>
             );
         }
     }
@@ -362,5 +379,7 @@ export default Routes;
 ### 框架搭建完成，页面细节可自己完善。
 
 ![image-20200206201148607](../../Library/Application Support/typora-user-images/image-20200206201148607.png)
+
+
 
 代码地址

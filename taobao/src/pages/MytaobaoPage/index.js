@@ -1,12 +1,8 @@
 import React, { Component } from "react";
-import PageLayout from "../../layout/PageLayout/";
+import PageLayout from "../../layout/PageLayout";
 
-export default class MytaobaoPage extends Component {
+export default class MyTaobaoPage extends Component {
     render() {
-        return (
-            <PageLayout>
-                <h3>MytaobaoPage</h3>
-            </PageLayout>
-        );
+        return <PageLayout>MyTaobaoPage</PageLayout>;
     }
 }
